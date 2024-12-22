@@ -2,9 +2,10 @@
 
 export default function FavoritesPage() {
   return (
-      <div >
+    <div>
+      <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold md:text-[60px]">Вподобання</h1>
-        {/* Контент сторінки */}
       </div>
-  );
+    </div>
+  )
 }

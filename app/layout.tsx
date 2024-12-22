@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Sidebar } from '@/components/Sidebar'
 import { MobileNavbar } from '@/components/MobileNavbar'
+import { BackButton } from "@/components/BackButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="uk">
-      <body className='font-mono'>
+    <html lang="uk" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-mono`}>
+      
         <div className='relative min-h-screen'>
           <div className='flex flex-col md:flex-row'>
             <Sidebar />
