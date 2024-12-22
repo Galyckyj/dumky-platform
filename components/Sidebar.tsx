@@ -9,6 +9,7 @@ import { books } from "@/constants/books";
 import { Book } from "@/types/book";
 
 
+
 const menuItems = [
   { id: 1, icon: Home2, label: 'Головна', href: '/' },
   { id: 2, icon: Save2, label: 'Збереження', href: '/favorites' },
@@ -79,7 +80,7 @@ export const Sidebar = memo(() => {
           <div className='text-gray-400 text-center'>Сьогоднішня книга дня</div>
           {bookOfDay && (
           <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl">
-            <div className=""><img className="rounded-xl" src={bookOfDay.image} alt={bookOfDay.title} /></div>
+            <div className=""><img className="rounded-xl w-[100px]" src={bookOfDay.image} alt={bookOfDay.title} /></div>
             <div className="flex flex-col w-[130px]">
               <div className="text-base mb-2 font-semibold text-[#2D3047]">{bookOfDay.title}</div>
               <div className="text-sm text-gray-500 h-[120px] text-ellipsis overflow-hidden">{bookOfDay.description}</div>
