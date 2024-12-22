@@ -80,9 +80,9 @@ export const Sidebar = memo(() => {
           {bookOfDay && (
           <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl">
             <div className=""><img className="rounded-xl" src={bookOfDay.image} alt={bookOfDay.title} /></div>
-            <div className="flex flex-col gap-2 w-[130px]">
-              <div className="text-base font-semibold text-[#2D3047]">{bookOfDay.title}</div>
-              <div className="text-sm text-gray-500">{bookOfDay.description}</div>
+            <div className="flex flex-col w-[130px]">
+              <div className="text-base mb-2 font-semibold text-[#2D3047]">{bookOfDay.title}</div>
+              <div className="text-sm text-gray-500 h-[120px] text-ellipsis overflow-hidden">{bookOfDay.description}</div>
             </div>
           </div>
         )}
