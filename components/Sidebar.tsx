@@ -1,8 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useState, useEffect } from 'react';
 import { Home2, Category, Save2, Setting, ArrowRight2 } from "iconsax-react"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { memo } from 'react'
+
+import { books } from "@/constants/books";
+import { Book } from "@/types/book";
+
 
 const menuItems = [
   { id: 1, icon: Home2, label: 'Головна', href: '/' },
@@ -13,6 +18,16 @@ const menuItems = [
 
 export const Sidebar = memo(() => {
   const pathname = usePathname();
+  const [bookOfDay, setBookOfDay] = useState<Book | null>(null);
+
+  useEffect(() => {
+    const getRandomBook = () => {
+      const randomIndex = Math.floor(Math.random() * books.length);
+      return books[randomIndex];
+    };
+    setBookOfDay(getRandomBook());
+  }, []);
+
   
   return (
     <div className="hidden md:block bg-[#f4f4f6] max-w-96 p-12 min-h-screen flex-shrink-0">
@@ -62,13 +77,15 @@ export const Sidebar = memo(() => {
 
         <div className="book_reading">
           <div className='text-gray-400 text-center'>Сьогоднішня книга дня</div>
+          {bookOfDay && (
           <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl items-center">
-            <div className="w-[600px]"><img className="rounded-xl" src="https://st.booknet.ua/uploads/covers/220/1730881755_52.png" alt="help" /></div>
+            <div className="w-[600px]"><img className="rounded-xl" src={bookOfDay.image} alt={bookOfDay.title} /></div>
             <div className="flex flex-col gap-2">
-              <div className="text-base font-semibold text-[#2D3047]">Назва книги</div>
-              <div className="text-sm text-gray-500">А це опис цієї книги, краще не читай, це тестовий текст, просто треба щось написати, такі правила.</div>
+              <div className="text-base font-semibold text-[#2D3047]">{bookOfDay.title}</div>
+              <div className="text-sm text-gray-500">{bookOfDay.description}</div>
             </div>
           </div>
+        )}
 
         </div>
     </div>
