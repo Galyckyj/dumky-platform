@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Home2, Category, Save2, Setting } from "iconsax-react"

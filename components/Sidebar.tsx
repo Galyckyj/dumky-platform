@@ -1,3 +1,5 @@
+'use client'
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useState, useEffect } from 'react';
 import { Home2, Category, Save2, Setting, ArrowRight2 } from "iconsax-react"

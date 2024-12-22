@@ -16,19 +16,11 @@ export async function POST(request: Request) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: CHANNEL_ID,
-          text: body.message,
+          text: "<strong>Повідомлення з сайту:</strong> " + body.message,
           parse_mode: 'HTML',
           from: {
             is_bot: true,
             username: 'dumky2_bot'
-          },
-          reply_markup: {
-            inline_keyboard: [[
-              {
-                text: '🤖 Це повідомлення від бота',
-                callback_data: 'bot_signature'
-              }
-            ]]
           }
         })
       }
