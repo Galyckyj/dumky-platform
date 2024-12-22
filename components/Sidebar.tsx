@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation'
 import { memo } from 'react'
 
 const menuItems = [
-  { id: 1, icon: Home2, label: 'Home', href: '/' },
-  { id: 2, icon: Save2, label: 'Save', href: '/favorites' },
-  { id: 3, icon: Category, label: 'Category', href: '/category' },
-  { id: 4, icon: Setting, label: 'Setting', href: '/settings' },
+  { id: 1, icon: Home2, label: 'Головна', href: '/' },
+  { id: 2, icon: Save2, label: 'Збереження', href: '/favorites' },
+  { id: 3, icon: Category, label: 'Категорії', href: '/category' },
+  { id: 4, icon: Setting, label: 'Налаштування', href: '/settings' },
 ]
 
 export const Sidebar = memo(() => {
@@ -61,7 +61,7 @@ export const Sidebar = memo(() => {
       </div>
 
         <div className="book_reading">
-          <div className='text-gray-400 text-center'>Current books reading</div>
+          <div className='text-gray-400 text-center'>Сьогоднішня книга дня</div>
           <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl items-center">
             <div className="w-[600px]"><img className="rounded-xl" src="https://st.booknet.ua/uploads/covers/220/1730881755_52.png" alt="help" /></div>
             <div className="flex flex-col gap-2">

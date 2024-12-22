@@ -2,7 +2,7 @@
 import { Layout } from '@/components/layouts/Layout'
 import { Header } from '@/components/Header'
 import { BookCarousel } from '@/components/BookCarousel'
-import { TextareaWithButton } from '@/components/Feedback'
+import { Feedback } from '@/components/Feedback'
 import { MessageList } from '@/components/Coments'
 import { books } from '@/constants/books' // Перемістіть масив книг у окремий файл
 import Link from 'next/link'
@@ -13,12 +13,12 @@ export default function Home() {
       <Header />
       <div className="popular my-11">
         <div className='titleh flex justify-between items-center'>
-          <h2 className='font-semibold text-xl'>Popular Books</h2>
-          <Link href='/popular'>All</Link>
+          <h2 className='font-semibold text-xl'>Популярні книги</h2>
+          <Link href='/popular'>Більше</Link>
         </div>
         <BookCarousel books={books} />
       </div>
-      <TextareaWithButton />
+      <Feedback />
       {/* <MessageList /> */}
     </Layout>
   )

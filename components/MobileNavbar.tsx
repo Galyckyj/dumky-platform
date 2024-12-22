@@ -3,10 +3,10 @@ import { usePathname } from 'next/navigation'
 import { Home2, Category, Save2, Setting } from "iconsax-react"
 
 const menuItems = [
-  { id: 1, icon: Home2, label: 'Home', href: '/' },
-  { id: 2, icon: Save2, label: 'Save', href: '/favorites' },
-  { id: 3, icon: Category, label: 'Category', href: '/category' },
-  { id: 4, icon: Setting, label: 'Setting', href: '/settings' },
+  { id: 1, icon: Home2, label: 'Головна', href: '/' },
+  { id: 2, icon: Save2, label: 'Збереженні', href: '/favorites' },
+  { id: 3, icon: Category, label: 'Категорії', href: '/category' },
+  { id: 4, icon: Setting, label: 'Налаштування', href: '/settings' },
 ]
 
 export function MobileNavbar() {

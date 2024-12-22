@@ -25,7 +25,7 @@ export async function POST(request: Request) {
           reply_markup: {
             inline_keyboard: [[
               {
-                text: '🤖 Bot Message',
+                text: '🤖 Це повідомлення від бота',
                 callback_data: 'bot_signature'
               }
             ]]
