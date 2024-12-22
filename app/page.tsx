@@ -5,8 +5,10 @@ import { Feedback } from '@/components/Feedback'
 import { MessageList } from '@/components/Coments'
 import { books } from '@/constants/books' // Перемістіть масив книг у окремий файл
 import Link from 'next/link'
+import { usePullToRefresh } from '@/hooks/useSearch'
 
 export default function Home() {
+  usePullToRefresh()
   return (
     <div>
       <Header/>

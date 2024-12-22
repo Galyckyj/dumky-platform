@@ -27,7 +27,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    
     <html lang="uk" suppressHydrationWarning>
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Dumky" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-mono`}>
       
         <div className='relative min-h-screen'>

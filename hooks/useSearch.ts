@@ -1,19 +1,38 @@
-import { useState, useCallback } from 'react';
-import { Book } from '@/types/book';
-import { books } from '@/constants/books';
+'use client'
+import { useCallback, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export function useSearch() {
-  const [searchResults, setSearchResults] = useState<Book[]>(books);
-  const [searchQuery, setSearchQuery] = useState('');
+export function usePullToRefresh() {
+  const router = useRouter()
 
-  const handleSearch = useCallback((query: string) => {
-    const filtered = books.filter(book => 
-      book.title.toLowerCase().includes(query.toLowerCase()) ||
-      book.author.toLowerCase().includes(query.toLowerCase())
-    );
-    setSearchResults(filtered);
-    setSearchQuery(query);
-  }, []);
+  const handleRefresh = useCallback(() => {
+    router.refresh()
+  }, [router])
 
-  return { searchResults, searchQuery, handleSearch };
+  useEffect(() => {
+    if ('standalone' in window.navigator && window.navigator.standalone) {
+      let touchStartY = 0
+      
+      const touchStart = (e: TouchEvent) => {
+        touchStartY = e.touches[0].clientY
+      }
+
+      const touchMove = (e: TouchEvent) => {
+        const touchY = e.touches[0].clientY
+        const touchDiff = touchY - touchStartY
+        
+        if (touchDiff > 100 && window.scrollY === 0) {
+          handleRefresh()
+        }
+      }
+
+      document.addEventListener('touchstart', touchStart)
+      document.addEventListener('touchmove', touchMove)
+
+      return () => {
+        document.removeEventListener('touchstart', touchStart)
+        document.removeEventListener('touchmove', touchMove)
+      }
+    }
+  }, [handleRefresh])
 }
