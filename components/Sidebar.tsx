@@ -78,9 +78,9 @@ export const Sidebar = memo(() => {
         <div className="book_reading">
           <div className='text-gray-400 text-center'>Сьогоднішня книга дня</div>
           {bookOfDay && (
-          <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl items-center">
-            <div className="w-[600px]"><img className="rounded-xl" src={bookOfDay.image} alt={bookOfDay.title} /></div>
-            <div className="flex flex-col gap-2">
+          <div className="flex gap-4 my-10 bg-white p-4 shadow-sm rounded-xl">
+            <div className=""><img className="rounded-xl" src={bookOfDay.image} alt={bookOfDay.title} /></div>
+            <div className="flex flex-col gap-2 w-[130px]">
               <div className="text-base font-semibold text-[#2D3047]">{bookOfDay.title}</div>
               <div className="text-sm text-gray-500">{bookOfDay.description}</div>
             </div>
